@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Project</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1 class="title">Loan Calculator</h1>
+    <div class="LoanCalculator">
+        <div class="input-section">
+            <label for="LoanAmount">Loan Amount (MMK):</label>
+            <div>
+                <input type="number" id="LoanAmount" value="50000" oninput="validateLoanAmount()">
+                <p id="loanMessage" class="error"></p>
+                <span id="LoanAmountDisplay">50,000 MMK</span>
+            </div>
+
+            <label for="loanYears">Loan Term (in Months):</label>
+            <div id="yearsOptions">
+                <input type="range" id="loanYears" min="3" max="24" step="1" value="3" oninput="updateYearsDisplay(this.value)">
+                <span id="yearsDisplay">3 Months</span>
+            </div>
+
+            <label id="RateLabel">Monthly Interest Rate (Annual 28%)</label>
+
+            <div class="button-row">
+                <input type="button" value="Calculate" onclick="calculateTotal()">
+                <input type="button" value="Clear" onclick="clearForm()">
+            </div>
+        </div>
+
+        <div class="result-section">
+            <label class="result-label">Monthly Payment (Principle + Interest):</label>
+            <span id="monthlyPayment">0.00 MMK</span>
+
+            <label class="result-label">Total Interest:</label>
+            <span id="totalInterest">0.00 MMK</span>
+
+            <label class="result-label">Total Payment (Annual):</label>
+            <span id="result">0.00 MMK</span>
+        </div>
+    </div>
+
+<script src="./calculator.js"></script>  
+</body>
+</html>
